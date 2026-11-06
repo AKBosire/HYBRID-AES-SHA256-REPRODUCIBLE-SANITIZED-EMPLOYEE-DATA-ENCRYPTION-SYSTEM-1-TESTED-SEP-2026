@@ -1,0 +1,2 @@
+level,runs,total_requests_per_run,concurrency,mean_throughput_requests_per_second,mean_completion_percentage,mean_failure_percentage,mean_response_time_ms_across_runs,mean_p95_response_time_ms_across_runs,throughput_sample_standard_deviation
+custom,1,1000,100,1.101494,6.4,93.6,5656.158318,11776.99993,0.0

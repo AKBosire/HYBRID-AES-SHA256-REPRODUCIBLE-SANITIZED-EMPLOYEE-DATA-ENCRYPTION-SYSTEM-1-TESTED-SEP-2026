@@ -1,0 +1,4 @@
+cryptography>=42,<46
+Flask>=3,<4
+requests>=2.31,<3
+Werkzeug>=3,<4

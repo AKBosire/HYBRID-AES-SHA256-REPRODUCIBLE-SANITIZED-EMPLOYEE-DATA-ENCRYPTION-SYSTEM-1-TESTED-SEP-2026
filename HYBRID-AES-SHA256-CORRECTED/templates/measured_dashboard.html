@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Measured Concurrent Login Results</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1050px; margin: 2rem auto; color: #17202a; }
+    h1 { color: #17365d; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #d9d9d9; padding: .65rem; text-align: left; }
+    th { background: #17365d; color: white; }
+    tr:nth-child(even) { background: #f4f7fb; }
+  </style>
+</head>
+<body>
+  <h1>Measured Concurrent Login Results</h1>
+  <p>This dashboard reports the latest completed run. Values are calculated from raw request observations; no random or generated timing values are used.</p>
+  <table>
+    <tbody>
+    {% for key, value in summary.items() if key != 'environment' %}
+      <tr><th>{{ key.replace('_', ' ')|title }}</th><td>{{ value }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

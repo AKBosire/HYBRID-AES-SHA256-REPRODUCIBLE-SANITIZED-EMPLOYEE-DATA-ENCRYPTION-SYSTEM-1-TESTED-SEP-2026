@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Encryption System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 40px;
+            background-color: #0056b3;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle .toggle {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle.dark-mode {
+            background-color: #222;
+        }
+
+        .theme-toggle.dark-mode .toggle {
+            transform: translateX(40px);
+        }
+
+        .theme-label {
+            font-size: 14px;
+            margin: 0 10px;
+            color: #fff;
+        }
+
+        body.dark-mode .theme-label {
+            color: #ddd;
+        }
+    </style>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const toggleButton = document.querySelector('.theme-toggle');
+            const isDarkMode = body.classList.toggle('dark-mode');
+            toggleButton.classList.toggle('dark-mode', isDarkMode);
+            localStorage.setItem('theme', isDarkMode ? 'Dark' : 'Light');
+        }
+
+        // Preserve the theme on page reload
+        window.onload = function() {
+            const isDarkMode = localStorage.getItem('theme') === 'Dark';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle').classList.add('dark-mode');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div class="row w-100 shadow rounded">
+            <!-- Branding Section -->
+            <div class="col-lg-6 p-0">
+                <img src="{{ url_for('static', filename='aes-encryption.jpg') }}" alt="AES Encryption Image" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+
+            <!-- Login/Register Section -->
+            <div class="col-lg-6 bg-white p-5 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="text-primary mb-4">Welcome</h2>
+                <p class="text-muted text-center mb-4">Get started by registering or logging in to manage employee data securely.</p>
+
+                <div class="d-grid gap-3 w-75">
+                    <a href="/register" class="btn btn-primary btn-lg rounded-pill shadow-sm">Register Employee</a>
+                    <a href="/login" class="btn btn-secondary btn-lg rounded-pill shadow-sm">Login</a>
+                </div>
+
+                <!-- Dark Mode Toggle Switch -->
+                <div class="mt-4 d-flex align-items-center">
+                    <span class="theme-label">Light</span>
+                    <div class="theme-toggle" onclick="toggleTheme()">
+                        <div class="toggle"></div>
+                    </div>
+                    <span class="theme-label">Dark</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <p>&copy; 2025 Employee Encryption System | Privacy Policy | Contact Us</p>
+    </footer>
+</body>
+</html>

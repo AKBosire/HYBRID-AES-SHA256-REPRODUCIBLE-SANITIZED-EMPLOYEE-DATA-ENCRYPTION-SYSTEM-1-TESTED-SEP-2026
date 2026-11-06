@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa;
+            padding: 30px;
+            color: #333;
+        }
+        h1 {
+            color: #dc3545;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-break: break-all;
+        }
+        th {
+            background: #dc3545;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ffc107;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    
+    <div class="warning">
+        ⚠️ This is how the data is actually stored in the database.<br>
+        Sensitive fields are protected as <strong>authenticated Fernet tokens</strong>.<br>
+        Passwords are <strong>SHA-256 hashed</strong> (one-way, irreversible).<br>
+        The login email remains readable for record lookup; this limitation must be reported.<br>
+        The view is protected by a separate administrator password.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                {% for col in columns %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for value in row %}
+                    <td>
+                        {% if value is none %}
+                            <em style="color:#999;">NULL</em>
+                        {% elif value is string and value|length > 80 %}
+                            {{ value[:75] }}...
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('admin_decrypted_view') }}" class="back-link">View authorized decrypted records</a>
+    &nbsp; | &nbsp;
+    <a href="{{ url_for('admin_logout') }}" class="back-link">Log out</a>
+</body>
+</html>

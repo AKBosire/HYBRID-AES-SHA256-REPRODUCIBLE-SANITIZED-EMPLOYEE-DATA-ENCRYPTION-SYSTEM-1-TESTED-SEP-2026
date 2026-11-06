@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-09-14T12:04:58.649329+00:00",
+  "iterations": 1000,
+  "verified_round_trips": 1000,
+  "modified_tokens_rejected": 1000,
+  "mean_encryption_time_ms": 0.055635,
+  "mean_decryption_time_ms": 0.05009,
+  "mean_sha256_time_ms": 0.0058487,
+  "raw_results_file": "crypto_benchmark_20260914T120458Z_raw.csv",
+  "environment": {
+    "python": "3.12.5",
+    "operating_system": "Windows-10-10.0.19045-SP0"
+  }
+}

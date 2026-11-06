@@ -1,0 +1,27 @@
+{
+  "run_id": "20260914T122149798728Z_high_r3",
+  "timestamp_utc": "2026-09-14T12:22:55.388491+00:00",
+  "level": "high",
+  "repetition": 3,
+  "target": "https://127.0.0.1:5000/login",
+  "total_requests": 1000,
+  "concurrency": 50,
+  "timeout_seconds": 1.2,
+  "tls_verification": false,
+  "duration_seconds": 65.577365,
+  "completed_requests": 115,
+  "failed_requests": 885,
+  "completion_percentage": 11.5,
+  "failure_percentage": 88.5,
+  "throughput_requests_per_second": 1.753654,
+  "mean_response_time_ms": 3139.023898,
+  "median_response_time_ms": 2899.3666,
+  "p95_response_time_ms": 5234.130185,
+  "minimum_response_time_ms": 749.6111,
+  "maximum_response_time_ms": 20483.8879,
+  "raw_results_file": "20260914T122149798728Z_high_r3_raw.csv",
+  "environment": {
+    "python": "3.12.5",
+    "operating_system": "Windows-10-10.0.19045-SP0"
+  }
+}

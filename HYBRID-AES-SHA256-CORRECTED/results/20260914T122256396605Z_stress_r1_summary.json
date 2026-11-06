@@ -1,0 +1,27 @@
+{
+  "run_id": "20260914T122256396605Z_stress_r1",
+  "timestamp_utc": "2026-09-14T12:23:59.090805+00:00",
+  "level": "stress",
+  "repetition": 1,
+  "target": "https://127.0.0.1:5000/login",
+  "total_requests": 1000,
+  "concurrency": 100,
+  "timeout_seconds": 1.2,
+  "tls_verification": false,
+  "duration_seconds": 62.680996,
+  "completed_requests": 99,
+  "failed_requests": 901,
+  "completion_percentage": 9.9,
+  "failure_percentage": 90.1,
+  "throughput_requests_per_second": 1.579426,
+  "mean_response_time_ms": 4343.333173,
+  "median_response_time_ms": 3803.811,
+  "p95_response_time_ms": 8835.4285,
+  "minimum_response_time_ms": 756.3353,
+  "maximum_response_time_ms": 28749.1082,
+  "raw_results_file": "20260914T122256396605Z_stress_r1_raw.csv",
+  "environment": {
+    "python": "3.12.5",
+    "operating_system": "Windows-10-10.0.19045-SP0"
+  }
+}
